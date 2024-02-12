@@ -59,13 +59,19 @@ architecture test_bench of top_basys3_tb is
   -- declare the component of your top-level design unit under test (UUT)
   component top_basys3 is
       port(
-          -- TODO
+          i_A     : in  std_logic; -- 1-bit input port
+          i_B     : in  std_logic; 
+          i_Cin   : in  std_logic;
+          o_S     : out std_logic;  -- 1-bit output port
+          o_Cout  : out std_logic-- TODO
       );
   end component;
   
  
 	-- declare signals needed to stimulate the UUT inputs
-	   -- TODO
+      signal w_led   :   std_logic_vector (1 downto 0) := (others => '0');
+      signal w_sw    :   std_logic_vector (2 downto 0) := (others => '0');
+      
 	-- finish declaring needed signals
 begin
 	-- PORT MAPS ----------------------------------------
@@ -73,8 +79,12 @@ begin
 	-- Look at your old test benches if you are unsure what to do
 	-----------------------------------------------------
 	top_basys3_inst : top_basys3 port map (
-	   sw => w_sw,
-	   led => w_led
+	   i_A => w_sw(0),
+	   i_B => w_sw(1),
+	   i_Cin => w_sw(2),
+	   o_S => w_led(0),
+	   o_Cout => w_led(1)
+       
 	);
 	-- PROCESSES ----------------------------------------	
 	-- Test Plan Process
@@ -83,9 +93,21 @@ begin
 	begin
 	
 	    w_sw <= o"0"; wait for 10 ns;
-		assert w_led = "00" report "bad o0" severity failure;
-            w_sw <= o"1"; wait for 10 ns;
-            	assert w_led = "01" report "bad o1" severity failure;
+		  assert w_led = "00" report "bad o0" severity failure;
+        w_sw <= o"1"; wait for 10 ns;
+          assert w_led = "01" report "bad o1" severity failure;
+        w_sw <= o"2"; wait for 10 ns;
+          assert w_led = "01" report "bad o2" severity failure;
+        w_sw <= o"3"; wait for 10 ns;
+          assert w_led = "10" report "bad o3" severity failure;
+        w_sw <= o"4"; wait for 10 ns;
+          assert w_led = "01" report "bad o4" severity failure;
+        w_sw <= o"5"; wait for 10 ns;
+          assert w_led = "10" report "bad o5" severity failure;
+        w_sw <= o"6"; wait for 10 ns;
+          assert w_led = "10" report "bad o6" severity failure;
+        w_sw <= o"7"; wait for 10 ns;
+          assert w_led = "11" report "bad o7" severity failure;
 	    --You must fill in the remaining test cases.	
 	
 		wait; -- wait forever
