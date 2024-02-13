@@ -29,4 +29,5 @@ Assert statements of other severity levels will be reported, but not fail the wo
 ## Documentation
 I received help from Capt Yarbrough because I needed to add my topbasys3.vhd file as a source file for my simulation to get my test bench to work.
 
-![images](Screenshot 2024-02 13 135812.png)
+![image](https://github.com/griffingreenwood21/ece281-ice3/assets/141801624/7c482dd2-a98e-4b48-a03c-cbc0ae58ae30)
+
