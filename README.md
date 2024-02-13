@@ -26,4 +26,7 @@ If any of the `assert` statements fail **with** `severity failure` then GHDL wil
 Assert statements of other severity levels will be reported, but not fail the workflow.
 
 
+## Documentation
+I received help from Capt Yarbrough because I needed to add my topbasys3.vhd file as a source file for my simulation to get my test bench to work.
+
 !["C:\Users\Griffin.Greenwood\ece281-code\ece281-ice3\Screenshot 2024-02-13 135812.png"](Screenshot 2024-02-13 135812.png)
