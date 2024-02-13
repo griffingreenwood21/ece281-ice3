@@ -35,4 +35,4 @@
 #don't ignore build.tcl
 !build.tcl
 !images/
-!images/**/
+!images/.png
